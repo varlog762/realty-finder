@@ -33,6 +33,11 @@ header {
       &:hover {
         text-decoration: underline;
       }
+
+      &.router-link-active {
+        color: #42b883; // Сделаем его "Vue-зеленым" для примера
+        font-weight: bold;
+      }
     }
   }
 }
