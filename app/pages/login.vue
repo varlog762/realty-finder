@@ -9,7 +9,7 @@ const password = ref("");
 
 const handleLogin = async () => {
   // TODO: Add
-  const { data, error } = await useFetch("/api/auth/login", {
+  const { data, error } = await useFetch("/api/login", {
     method: "POST",
     body: {
       email: email.value,
@@ -21,9 +21,10 @@ const handleLogin = async () => {
     alert(error.value.data.statusMessage || "Что-то пошло не так");
   } else {
     console.log("Успех!", data.value);
-    alert(data.value);
 
-    // В БУДУЩЕМ: мы здесь сохраним data.value.token и перекинем юзера
+    const authToken = useState("authToken");
+    authToken.value = data.value?.token;
+    await navigateTo("/");
   }
 };
 </script>
