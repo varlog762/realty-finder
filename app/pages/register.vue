@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+definePageMeta({
+  title: "Register",
+  layout: "auth",
+});
+</script>
 
 <template>
   <h1>Register Page</h1>

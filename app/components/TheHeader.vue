@@ -6,6 +6,7 @@
     <nav>
       <NuxtLink to="/">Dashboard</NuxtLink>
       <NuxtLink to="/login">Login</NuxtLink>
+      <NuxtLink to="/register">Register</NuxtLink>
     </nav>
   </header>
 </template>
