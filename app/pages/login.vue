@@ -7,8 +7,24 @@ definePageMeta({
 const email = ref("");
 const password = ref("");
 
-const handleLogin = () => {
-  console.log(`Logging in with`, email.value, password.value);
+const handleLogin = async () => {
+  // TODO: Add
+  const { data, error } = await useFetch("/api/auth/login", {
+    method: "POST",
+    body: {
+      email: email.value,
+      password: password.value,
+    },
+  });
+
+  if (error.value) {
+    alert(error.value.data.statusMessage || "Что-то пошло не так");
+  } else {
+    console.log("Успех!", data.value);
+    alert(data.value);
+
+    // В БУДУЩЕМ: мы здесь сохраним data.value.token и перекинем юзера
+  }
 };
 </script>
 
