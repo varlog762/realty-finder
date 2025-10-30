@@ -7,7 +7,6 @@ export default defineEventHandler(async (event) => {
   // Но мы просто симулируем успех:
   console.log("--- API /login ПОЛУЧИЛ: ---", body);
 
-  // Хардкодим проверку:
   if (body.email === "test@test.com" && body.password === "12345") {
     // В реальном мире мы бы вернули JWT токен
     return {
