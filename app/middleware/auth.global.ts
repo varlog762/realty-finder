@@ -1,11 +1,15 @@
 export default defineNuxtRouteMiddleware((to, from) => {
   const authToken = useState("authToken");
 
-  if (to.path === "/" && !authToken.value) {
+  const isProtectedRoute = to.path === "/";
+
+  const isPublicAuthRoute = to.path === "/login" || to.path === "/register";
+
+  if (!authToken.value && isProtectedRoute) {
     return navigateTo("/login");
   }
 
-  if (to.path === "/login" && authToken.value) {
+  if (authToken.value && isPublicAuthRoute) {
     return navigateTo("/");
   }
 });
